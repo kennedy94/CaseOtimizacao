@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>case-opt</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>case-opt - solucao</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14369,19 +14369,19 @@ a.anchor-link {
 <p>$c^{alu}_u$: Custo de aluguel da unidade da armazenamento $u \in U$ (R$ por unidade)</p>
 <p>$p^{sub}_v$ : Preço de venda de subprodutos para o cliente $v \in V$. (R$ por quilo) Caso deseje-se implementar tipos de subprodutos diferentes esses parâmetros e variáveis associado aos sub produtos aumentariam uma dimensão.</p>
 <p>$c^{sub}_v$ : Custo de transporte ou outros custos eventuais de vender/doar subprodutos. (R$ por quilo)</p>
-<p>$q_{ik}$: subproduto gerado por unidades produzida de $i \in N$ por $k \in {\cal F}_{i}$. (quilos)</p>
+<p>$sub_{ik}$: subproduto gerado por unidades produzida de $i \in N$ por $k \in {\cal F}_{i}$. (quilos)</p>
 <p>$e_{ik}$ : Eficiência da máquina $k \in {\cal F}_i$ para produzir o item $i \in N$ (minutos)</p>
 <p>$cap^{prod}_{kt}$ : capacidade de produção da máquina $k \in M$ no período $t \in T$ em horas (para a instância é fixo por máquina, então basta $cap^{prod}_{k}$ para simplificar) (unidades)</p>
 <p>$cap^{sub}_{v}$ : capacidade/demanda de subprodutos por cliente $v \in V$. (quilos)</p>
 <p>$cap^{armaz}_{u}$ : capacidade da unidade de armazenagem $u \in U $ em unidades, inclui o próprio armazem (unidades)</p>
 <p>${\cal M}$ : um número suficientemente grande, pode ser estimado com base na demanda</p>
-<h2 id="Vari&#225;veis-de-decis&#227;o">Vari&#225;veis de decis&#227;o<a class="anchor-link" href="#Vari&#225;veis-de-decis&#227;o">&#182;</a></h2><p>$q_{ikt}$ : quantidade de produtos do tipo $i \in N$ produzidos pela máquina $k \in M$ no período $t \in T$ em unidades</p>
-<p>$y_{ijt}$ : 1, se a demanda do pedido  $j \in P$  de produto $i \in N$ do período $t$ é atendido, 0, caso contrário</p>
-<p>$w_{kt}$ : 1, se a máquina $k \in M$ é usada no período $t \in T$, 0, caso contrário</p>
-<p>$I_{it}$ : estoque de item $i \in N$ no final do período $t \in T$ em unidades, note que para esse problema estoque inicial $I_{i0} = 0$.</p>
-<p>$I_{ut}$ : estoque total utilizado na unidade de armazenagem $u \in U$ no final do período $t \in T$ em unidades, note que para esse problema estoque inicial $I_{u0} = 0$.</p>
-<p>$z_{u t}$ : 1 se a unidade de armazenagem $u \in U$ é alugada no período $t \in T$, 0 caso contrário</p>
-<p>$q^{sub}_{vt}$ : peso em kg de subprodutos gerados para o cliente $v \in V$ no final do período $t \in T$</p>
+<h2 id="Vari&#225;veis-de-decis&#227;o">Vari&#225;veis de decis&#227;o<a class="anchor-link" href="#Vari&#225;veis-de-decis&#227;o">&#182;</a></h2><h3 id="Note-que-algumas-vari&#225;veis-podem-ser-relaxadas-como-reais,-j&#225;-que-s&#227;o-obtidas-por-opera&#231;&#245;es-lineares-entre-inteiros-e-consequentemente-ser&#227;o-inteiras-na-solu&#231;&#227;o">Note que algumas vari&#225;veis podem ser relaxadas como reais, j&#225; que s&#227;o obtidas por opera&#231;&#245;es lineares entre inteiros e consequentemente ser&#227;o inteiras na solu&#231;&#227;o<a class="anchor-link" href="#Note-que-algumas-vari&#225;veis-podem-ser-relaxadas-como-reais,-j&#225;-que-s&#227;o-obtidas-por-opera&#231;&#245;es-lineares-entre-inteiros-e-consequentemente-ser&#227;o-inteiras-na-solu&#231;&#227;o">&#182;</a></h3><p>$q_{ikt} \in \mathbb{R}^+$ : quantidade de produtos do tipo $i \in N$ produzidos pela máquina $k \in M$ no período $t \in T$ em unidades.</p>
+<p>$y_{ijt} \in \mathbb{B}^+$ : 1, se a demanda do pedido  $j \in P$  de produto $i \in N$ do período $t$ é atendido, 0, caso contrário</p>
+<p>$w_{kt} \in \mathbb{B}^+$ : 1, se a máquina $k \in M$ é usada no período $t \in T$, 0, caso contrário</p>
+<p>$I_{it} \in \mathbb{R}^+$ : estoque de item $i \in N$ no final do período $t \in T$ em unidades, note que para esse problema estoque inicial $I_{i0} = 0$.</p>
+<p>$I_{ut} \in \mathbb{R}^+$ : estoque total utilizado na unidade de armazenagem $u \in U$ no final do período $t \in T$ em unidades, note que para esse problema estoque inicial $I_{u0} = 0$.</p>
+<p>$z_{u t} \in \mathbb{B}^+$ : 1 se a unidade de armazenagem $u \in U$ é alugada no período $t \in T$, 0 caso contrário</p>
+<p>$q^{sub}_{vt} \in \mathbb{R}^+$ : peso em kg de subprodutos gerados para o cliente $v \in V$ no final do período $t \in T$</p>
 <h2 id="Restri&#231;&#245;es">Restri&#231;&#245;es<a class="anchor-link" href="#Restri&#231;&#245;es">&#182;</a></h2><h3 id="Restri&#231;&#227;o-de-conserva&#231;&#227;o-de-demanda:">Restri&#231;&#227;o de conserva&#231;&#227;o de demanda:<a class="anchor-link" href="#Restri&#231;&#227;o-de-conserva&#231;&#227;o-de-demanda:">&#182;</a></h3><h4 id="Estoque-dos-itens-no-final-do-m&#234;s-anterior-+-quantidade-produzida---o-estoque-no-final-do-m&#234;s-tem-que-ser-igual-a-demanda-dos-pedidos-atendidos:">Estoque dos itens no final do m&#234;s anterior + quantidade produzida - o estoque no final do m&#234;s tem que ser igual a demanda dos pedidos atendidos:<a class="anchor-link" href="#Estoque-dos-itens-no-final-do-m&#234;s-anterior-+-quantidade-produzida---o-estoque-no-final-do-m&#234;s-tem-que-ser-igual-a-demanda-dos-pedidos-atendidos:">&#182;</a></h4><p>$\sum_{u \in U} I_{iu,t-1} + \sum_{k \in {\cal F}_i} q_{ikt} - \sum_{u \in U} I_{iut} = \sum_{j \in P} y_{ijt} d_{ijt}, \quad i \in N, t \in T, j \in P$</p>
 <h3 id="Restri&#231;&#227;o-de-ativa&#231;&#227;o-das-m&#225;quinas:">Restri&#231;&#227;o de ativa&#231;&#227;o das m&#225;quinas:<a class="anchor-link" href="#Restri&#231;&#227;o-de-ativa&#231;&#227;o-das-m&#225;quinas:">&#182;</a></h3><h4 id="Uma-m&#225;quina-&#233;-ativa-no-per&#237;odo-se-e-somente-se-h&#225;-produ&#231;&#227;o-de-algum-item-nela-neste-mesmo-per&#237;odo:">Uma m&#225;quina &#233; ativa no per&#237;odo se e somente se h&#225; produ&#231;&#227;o de algum item nela neste mesmo per&#237;odo:<a class="anchor-link" href="#Uma-m&#225;quina-&#233;-ativa-no-per&#237;odo-se-e-somente-se-h&#225;-produ&#231;&#227;o-de-algum-item-nela-neste-mesmo-per&#237;odo:">&#182;</a></h4><p>$\sum_{i \in {\cal I}_{k}} q_{ikt} \leq {\cal M} \cdot w_{kt}, \quad \forall k \in M, t \in T$</p>
 <h3 id="Restri&#231;&#227;o-de-capacidade-de-produ&#231;&#227;o">Restri&#231;&#227;o de capacidade de produ&#231;&#227;o<a class="anchor-link" href="#Restri&#231;&#227;o-de-capacidade-de-produ&#231;&#227;o">&#182;</a></h3><h4 id="para-cada-m&#225;quina-e-per&#237;odo-o-tempo-total-em-minutos-da-produ&#231;&#227;o-dos-itens-&#233;-melhor-ou-igual-a-capacidade-total-da-m&#225;quina-em-minutos:">para cada m&#225;quina e per&#237;odo o tempo total em minutos da produ&#231;&#227;o dos itens &#233; melhor ou igual a capacidade total da m&#225;quina em minutos:<a class="anchor-link" href="#para-cada-m&#225;quina-e-per&#237;odo-o-tempo-total-em-minutos-da-produ&#231;&#227;o-dos-itens-&#233;-melhor-ou-igual-a-capacidade-total-da-m&#225;quina-em-minutos:">&#182;</a></h4><p>$ \sum_{i \in {\cal I}_k} e_{ik} q_{ikt} \leq 60\cdot cap^{prod}_k, \quad k \in M, t \in T$</p>
@@ -14411,7 +14411,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#importar a biblioteca pandas</span>
@@ -14440,7 +14440,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
@@ -14487,11 +14487,11 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
     <span class="n">model</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">ConcreteModel</span><span class="p">()</span>
     
     <span class="c1">#Definição de variáveis de decisão</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">production_arcs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeIntegers</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">production_arcs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeReals</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">demand</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Binary</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">MAQUINAS</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Binary</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">I</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">PRODUTOS</span><span class="p">,</span> <span class="n">UNIDADESDEARMAZEM</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeIntegers</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">I_L</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">UNIDADESDEARMAZEM</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeIntegers</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">I</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">PRODUTOS</span><span class="p">,</span> <span class="n">UNIDADESDEARMAZEM</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeReals</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">I_L</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">UNIDADESDEARMAZEM</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeReals</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">UNIDADESDEARMAZEM</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Binary</span><span class="p">)</span>    
     <span class="n">model</span><span class="o">.</span><span class="n">q_sub</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">DESTINOS</span><span class="p">,</span> <span class="n">PERIODOS</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">pyo</span><span class="o">.</span><span class="n">NonNegativeReals</span><span class="p">)</span>
     
@@ -14592,7 +14592,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MontarModelo</span><span class="p">(</span><span class="n">demand</span><span class="p">,</span><span class="n">production_arcs</span><span class="p">,</span><span class="n">production_capacity</span><span class="p">,</span>
@@ -14628,7 +14628,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
 Problem: 
-- Name: tmpffrk8mk2
+- Name: tmp5xf37t3y
   Lower bound: 299583.70548
   Upper bound: 299583.70548
   Number of objectives: 1
@@ -14643,10 +14643,10 @@ Solver:
   Termination message: MIP - Integer optimal solution\x3a Objective = 2.9958370548e+05
   Statistics: 
     Branch and bound: 
-      Number of bounded subproblems: 301
-      Number of created subproblems: 301
+      Number of bounded subproblems: 11
+      Number of created subproblems: 11
   Error rc: 0
-  Time: 0.1562666893005371
+  Time: 0.32805967330932617
 Solution: 
 - number of solutions: 0
   number of solutions displayed: 0
@@ -14675,7 +14675,7 @@ Solution:
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valores de função objetivo detalhados:&quot;</span><span class="p">)</span>
@@ -14749,7 +14749,7 @@ Solution:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Valores de função objetivo detalhados:
 custo_ativacao 117000.0
-custo_estoque 8215.999999999998
+custo_estoque 8216.0
 lucro_venda 423538.34
 lucro_subprodutos 1261.36548
 
@@ -14762,21 +14762,21 @@ Uso das linhas de produção w(k,t):
 w[1,1] w[1,2] w[2,1] w[3,1] w[5,1] w[6,1] 
 
 Estoque usado por unidade
-I[1,Galpao,2] = 501.0; I[1,Galpao,3] = 292.0; I[2,Galpao,2] = 316.0; I[2,Frabrica,2] = 7.0; I[2,Frabrica,3] = 165.0; I[3,Galpao,1] = 219.0; I[3,Galpao,2] = 88.0; I[3,Frabrica,3] = 66.0; I[4,Galpao,2] = 166.99999999999966; I[4,Frabrica,1] = 247.99999999999966; I[4,Frabrica,3] = 80.99999999999964; I[5,Galpao,2] = 92.0; I[5,Frabrica,1] = 160.0; I[6,Galpao,1] = 480.0; I[6,Galpao,2] = 186.0; I[7,Galpao,1] = 126.99999999999966; I[7,Galpao,2] = 308.0; I[7,Frabrica,1] = 392.00000000000034; I[7,Frabrica,3] = 152.00000000001498; I[8,Galpao,1] = 819.0; I[8,Galpao,3] = 17.000000000014666; I[8,Frabrica,2] = 647.0; I[8,Frabrica,3] = 242.99999999998533; I[9,Galpao,1] = 287.0; I[9,Frabrica,2] = 146.0; I[9,Frabrica,3] = 93.0; I[10,Galpao,2] = 209.0; 
+I[1,Galpao,2] = 501.0; I[1,Galpao,3] = 292.0; I[2,Frabrica,3] = 148.0; I[2,Galpao,2] = 323.0; I[2,Galpao,3] = 17.0; I[3,Frabrica,3] = 66.0; I[3,Galpao,1] = 219.0; I[3,Galpao,2] = 88.0; I[4,Frabrica,3] = 81.0; I[4,Galpao,1] = 248.0; I[4,Galpao,2] = 167.0; I[5,Galpao,1] = 160.0; I[5,Galpao,2] = 92.0; I[6,Galpao,1] = 480.0; I[6,Galpao,2] = 186.0; I[7,Frabrica,3] = 152.0; I[7,Galpao,1] = 519.0; I[7,Galpao,2] = 308.0; I[8,Frabrica,1] = 800.0; I[8,Frabrica,2] = 445.0; I[8,Frabrica,3] = 260.0; I[8,Galpao,1] = 19.0; I[8,Galpao,2] = 202.0; I[9,Frabrica,2] = 146.0; I[9,Frabrica,3] = 93.0; I[9,Galpao,1] = 287.0; I[10,Frabrica,2] = 209.0; 
 
 Estoque usado por unidade e periodo
-I_L[Galpao,1] = 1931.9999999999995, I_L[Galpao,2] = 1866.9999999999995, I_L[Galpao,3] = 308.99999999999966, I_L[Frabrica,1] = 800.0, I_L[Frabrica,2] = 800.0, I_L[Frabrica,3] = 800.0, 
+I_L[Frabrica,1] = 800.0, I_L[Frabrica,2] = 800.0, I_L[Frabrica,3] = 800.0, I_L[Galpao,1] = 1932.0, I_L[Galpao,2] = 1867.0, I_L[Galpao,3] = 309.0, 
 
 Quilos de subproduto gerados e destino
-q_sub[Reciclagem,1] 779.8357000000001
+q_sub[Reciclagem,1] 779.8357
 q_sub[Reciclagem,2] 271.30219999999997
 
 
 Quantidade produzida
-q[2,1,1] = 185.0;q[2,1,2] = 484.0;q[7,5,1] = 675.0;q[4,3,1] = 303.99999999999966;q[1,1,1] = 285.0;q[1,1,2] = 693.0;q[9,6,1] = 522.0;q[10,1,1] = 128.0;q[10,1,2] = 434.0;q[5,3,1] = 258.0;q[3,2,1] = 418.0;q[6,3,1] = 731.0;q[8,5,1] = 1254.0;
+q[2,1,1] = 185.0;q[2,1,2] = 484.0;q[7,5,1] = 675.0;q[4,3,1] = 304.0;q[1,1,1] = 285.0;q[1,1,2] = 693.0;q[9,6,1] = 522.0;q[10,1,1] = 128.0;q[10,1,2] = 434.0;q[5,3,1] = 258.0;q[3,2,1] = 418.0;q[6,3,1] = 731.0;q[8,5,1] = 1254.0;
 
 Aluguel usado por período
-z[Galpao,1], z[Galpao,2], z[Galpao,3], z[Galpao,4], z[Frabrica,1], z[Frabrica,2], z[Frabrica,3], z[Frabrica,4], </pre>
+z[Frabrica,1], z[Frabrica,2], z[Frabrica,3], z[Frabrica,4], z[Galpao,1], z[Galpao,2], z[Galpao,3], z[Galpao,4], </pre>
 </div>
 </div>
 
@@ -14792,7 +14792,7 @@ z[Galpao,1], z[Galpao,2], z[Galpao,3], z[Galpao,4], z[Frabrica,1], z[Frabrica,2]
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MontarModelo</span><span class="p">(</span><span class="n">demand</span><span class="p">,</span><span class="n">production_arcs</span><span class="p">,</span><span class="n">production_capacity</span><span class="p">,</span>
@@ -14828,7 +14828,7 @@ z[Galpao,1], z[Galpao,2], z[Galpao,3], z[Galpao,4], z[Frabrica,1], z[Frabrica,2]
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
 Problem: 
-- Name: tmpkjucv1mq
+- Name: tmpy3mjmpgz
   Lower bound: 299583.70548
   Upper bound: 299583.70548
   Number of objectives: 1
@@ -14838,15 +14838,15 @@ Problem:
   Sense: maximize
 Solver: 
 - Status: ok
-  User time: 0.36
+  User time: 0.09
   Termination condition: optimal
   Termination message: MIP - Integer optimal solution\x3a Objective = 2.9958370548e+05
   Statistics: 
     Branch and bound: 
-      Number of bounded subproblems: 301
-      Number of created subproblems: 301
+      Number of bounded subproblems: 11
+      Number of created subproblems: 11
   Error rc: 0
-  Time: 0.41161227226257324
+  Time: 0.1562645435333252
 Solution: 
 - number of solutions: 0
   number of solutions displayed: 0
@@ -14867,7 +14867,7 @@ Solution:
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valores de função objetivo detalhados:&quot;</span><span class="p">)</span>
@@ -14941,7 +14941,7 @@ Solution:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Valores de função objetivo detalhados:
 custo_ativacao 117000.0
-custo_estoque 8215.999999999998
+custo_estoque 8216.0
 lucro_venda 423538.34
 lucro_subprodutos 1261.36548
 </pre>
@@ -14965,7 +14965,7 @@ lucro_subprodutos 1261.36548
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MontarModelo</span><span class="p">(</span><span class="n">demand</span><span class="p">,</span><span class="n">production_arcs</span><span class="p">,</span><span class="n">production_capacity</span><span class="p">,</span>
@@ -14990,7 +14990,7 @@ lucro_subprodutos 1261.36548
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valores de função objetivo detalhados:&quot;</span><span class="p">)</span>
@@ -15062,7 +15062,7 @@ lucro_subprodutos 1261.36548
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Valores de função objetivo detalhados:
-custo_ativacao 96999.99999999555
+custo_ativacao 97000.0
 custo_estoque 0.0
 lucro_venda 426923.92
 lucro_subprodutos 10800.0
@@ -15087,7 +15087,7 @@ lucro_subprodutos 10800.0
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Montando frente de Pareto variando alfa e beta</span>
@@ -15120,7 +15120,7 @@ lucro_subprodutos 10800.0
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Pareto_Optimals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Pareto_Optimals</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucro&#39;</span><span class="p">,</span> <span class="s1">&#39;Atrito&#39;</span><span class="p">])</span>
@@ -15147,27 +15147,27 @@ lucro_subprodutos 10800.0
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>                   Lucro        Atrito
-alpha beta                            
-0.05  0.95  290479.85052  0.000000e+00
-0.10  0.90  290479.85052  0.000000e+00
-0.15  0.85  290479.85052  0.000000e+00
-0.20  0.80  290479.85052  0.000000e+00
-0.25  0.75  290479.85052  0.000000e+00
-0.30  0.70  290479.85052  0.000000e+00
-0.35  0.65  290479.85052  0.000000e+00
-0.40  0.60  290479.85052  0.000000e+00
-0.45  0.55  290479.85052  0.000000e+00
-0.50  0.50  290479.85052  0.000000e+00
-0.55  0.45  290479.85052  0.000000e+00
-0.60  0.40  290479.85052 -3.277091e-08
-0.65  0.35  290479.85052  0.000000e+00
-0.70  0.30  290479.85052  0.000000e+00
-0.75  0.25  290479.85052  0.000000e+00
-0.80  0.20  299583.70548  3.000000e+04
-0.85  0.15  299583.70548  3.000000e+04
-0.90  0.10  299583.70548  3.000000e+04
-0.95  0.05  299583.70548  3.000000e+04
+<pre>                   Lucro   Atrito
+alpha beta                       
+0.05  0.95  290479.85052      0.0
+0.10  0.90  290479.85052      0.0
+0.15  0.85  290479.85052      0.0
+0.20  0.80  290479.85052      0.0
+0.25  0.75  290479.85052      0.0
+0.30  0.70  290479.85052      0.0
+0.35  0.65  290479.85052      0.0
+0.40  0.60  290479.85052      0.0
+0.45  0.55  290479.85052      0.0
+0.50  0.50  290479.85052      0.0
+0.55  0.45  290479.85052      0.0
+0.60  0.40  290479.85052      0.0
+0.65  0.35  290479.85052      0.0
+0.70  0.30  290479.85052      0.0
+0.75  0.25  290479.85052      0.0
+0.80  0.20  299583.70548  30000.0
+0.85  0.15  299583.70548  30000.0
+0.90  0.10  299583.70548  30000.0
+0.95  0.05  299583.70548  30000.0
 </pre>
 </div>
 </div>
@@ -15179,7 +15179,7 @@ alpha beta
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Pareto_Optimals</span><span class="p">[</span><span class="s1">&#39;Lucro&#39;</span><span class="p">],</span> <span class="n">Pareto_Optimals</span><span class="p">[</span><span class="s1">&#39;Atrito&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\clubsuit$&#39;</span><span class="p">,</span>
@@ -15199,13 +15199,13 @@ alpha beta
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.collections.PathCollection at 0x1b00dfe7400&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x1e8ef696d60&gt;</pre>
 </div>
 
 </div>
@@ -15248,7 +15248,7 @@ alpha beta
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MontarModelo</span><span class="p">(</span><span class="n">demand</span><span class="p">,</span><span class="n">production_arcs</span><span class="p">,</span><span class="n">production_capacity</span><span class="p">,</span>
@@ -15285,7 +15285,7 @@ alpha beta
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>
 Problem: 
-- Name: tmp7303av5y
+- Name: tmpmouofl4a
   Lower bound: 299583.70548
   Upper bound: 299583.70548
   Number of objectives: 1
@@ -15295,15 +15295,15 @@ Problem:
   Sense: maximize
 Solver: 
 - Status: ok
-  User time: 0.14
+  User time: 0.09
   Termination condition: optimal
   Termination message: MIP - Integer optimal solution\x3a Objective = 2.9958370548e+05
   Statistics: 
     Branch and bound: 
-      Number of bounded subproblems: 301
-      Number of created subproblems: 301
+      Number of bounded subproblems: 11
+      Number of created subproblems: 11
   Error rc: 0
-  Time: 0.20305275917053223
+  Time: 0.14064359664916992
 Solution: 
 - number of solutions: 0
   number of solutions displayed: 0
@@ -15321,8 +15321,8 @@ Solution:
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>O gap final da solução foi de $0.00%$ o que indica que a solução é ótima. Ele pode ser calculado como a diferença percentual da melhor solução do problema com o maior limite inferior encontrado de uma relaxação. Ou seja, (upper bound - lower bound)/lowerbound.</p>
 <p>Ele indica o quão próximo de uma prova de otimalidade a melhor solução está.</p>
-<p>O número de nós de branch em bound final foi de 301. O que indica que desde o nó raíz, a árvore de branch em bound realizou 301 "branches" de subproblemas relaxados até encontrar uma solução inteira viável com prova de otimalidade.</p>
-<p>O tempo total de execução foi de $0.17$ segundos. O que foi bem rápido, é possível que a instância do problema seja bem pequena ou que haja algum furo no modelo que não consegui notar até o momento desse relatório o que me limitou avaliação do comportamento do tempo de execução do modelo com uso de menos variáveis e restrições.</p>
+<p>O número de nós de branch em bound final foi de $11$. O que indica que desde o nó raíz, a árvore de branch em bound realizou $11$ "branches" de subproblemas relaxados até encontrar uma solução inteira viável com prova de otimalidade.</p>
+<p>O tempo total de execução foi de $0.09$ segundos. O que foi bem rápido, é possível que a instância do problema seja bem pequena ou que haja algum furo no modelo que não consegui notar até o momento desse relatório o que me limitou avaliação do comportamento do tempo de execução do modelo com uso de menos variáveis e restrições.</p>
 <p>O valor final de função objetivo foi de $299583.70548$.</p>
 <p>Caso o modelo não seja escalonável para instâncias maiores e o tempo de execução disponível seja impraticável para obter soluções viáveis e boas, uma opção para resolvê-lo é o uso de heurísticas.</p>
 <p>Para problemas de dimensionamento de lotes como esse, é bastante usado heurísticas do tipo relax-and-fix. Que consiste em resolver subproblemas relaxados e fixando valores inteiros para os subproblemas seguintes. Várias estratégias de criar esses subproblemas podem ser avaliadas.</p>
