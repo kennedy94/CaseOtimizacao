@@ -14389,6 +14389,7 @@ a.anchor-link {
 <p>$I_{ut} \leq cap^{armaz}_{u} \cdot z_{ut}, \quad t \in T, u \in U $</p>
 <h3 id="Restri&#231;&#245;es-de-capacidade-de-subprodutos">Restri&#231;&#245;es de capacidade de subprodutos<a class="anchor-link" href="#Restri&#231;&#245;es-de-capacidade-de-subprodutos">&#182;</a></h3><h3 id="Defini&#231;&#227;o-da-quantidade-total-de-quilos-de-subprodutos-destinados-a-cada-cliente">Defini&#231;&#227;o da quantidade total de quilos de subprodutos destinados a cada cliente<a class="anchor-link" href="#Defini&#231;&#227;o-da-quantidade-total-de-quilos-de-subprodutos-destinados-a-cada-cliente">&#182;</a></h3><p>$ \sum_{v \in V} q^{sub}_{vt} = \sum_{i} \sum_{k} sub_{ik} \cdot q_{ikt}, t \in T$</p>
 <h3 id="A-quantidade-total-de-quilos-de-subprodutos-destinados-a-cada-cliente-n&#227;o-deve-exceder-sua-capacidade/demanda-por-per&#237;odo">A quantidade total de quilos de subprodutos destinados a cada cliente n&#227;o deve exceder sua capacidade/demanda por per&#237;odo<a class="anchor-link" href="#A-quantidade-total-de-quilos-de-subprodutos-destinados-a-cada-cliente-n&#227;o-deve-exceder-sua-capacidade/demanda-por-per&#237;odo">&#182;</a></h3><p>$ q^{sub}_{vt} \leq cap^{sub}_v, \quad v \in V, t \in T$</p>
+<p>Naturalmente o descarte só é feito se a capacidade de reciclagem ou doação é excedida, já que existe um custo de transporte, nos outros casos há ganho por venda ou custo zero. Como o modelo é de maximização de lucro isso só ocorrerá se as capacidades forem excedidas no período</p>
 <h2 id="Fun&#231;&#227;o-objetivo">Fun&#231;&#227;o objetivo<a class="anchor-link" href="#Fun&#231;&#227;o-objetivo">&#182;</a></h2><h2 id="Inicialmente-maximizar-o-lucro-total">Inicialmente maximizar o lucro total<a class="anchor-link" href="#Inicialmente-maximizar-o-lucro-total">&#182;</a></h2><h4 id="Lucros-de-venda-de-produtos-+-lucro-de-vendas-de-subprodutos---custos-de-armazenagem---custos-de-ativa&#231;&#227;o-de-m&#225;quinas">Lucros de venda de produtos + lucro de vendas de subprodutos - custos de armazenagem - custos de ativa&#231;&#227;o de m&#225;quinas<a class="anchor-link" href="#Lucros-de-venda-de-produtos-+-lucro-de-vendas-de-subprodutos---custos-de-armazenagem---custos-de-ativa&#231;&#227;o-de-m&#225;quinas">&#182;</a></h4><p>maximizar
 $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\&amp;mp}_{it}) y_{ijt} d_{ijt}+ \sum_{v \in V}\sum_{t \in T} (p^{sub}_{v} - c^{sub}_v) \cdot q^{sub}_{vt}- \sum_{u \in U} \sum_{t \in T} c^{alu}_u I_{ut}- \sum_{k \in M} \sum_{t \in T} c^{ativ}_k w_{kt} $</p>
 <h4 id="Para-tentar-minimizar-os-atritos-com-o-cliente-podemos-ver-como-um-problema-multiobjetivo-e-avaliar-os-trade-offs-com-a-quantidade-de-pedidos-n&#227;o-atendidos.">Para tentar minimizar os atritos com o cliente podemos ver como um problema multiobjetivo e avaliar os trade-offs com a quantidade de pedidos n&#227;o atendidos.<a class="anchor-link" href="#Para-tentar-minimizar-os-atritos-com-o-cliente-podemos-ver-como-um-problema-multiobjetivo-e-avaliar-os-trade-offs-com-a-quantidade-de-pedidos-n&#227;o-atendidos.">&#182;</a></h4><p>Podemos trazer isso de diversar maneiras. Neste case tratarei a função objetivo como</p>
@@ -14411,7 +14412,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#importar a biblioteca pandas</span>
@@ -14440,7 +14441,7 @@ $f_1(x) = \sum_{i \in N} \sum_{k \in {\cal F}_i} \sum_{t \in T} (p_{it} - c^{mo\
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pyomo.environ</span> <span class="k">as</span> <span class="nn">pyo</span>
